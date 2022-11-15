@@ -50,13 +50,13 @@ void main() {
   final user1 =
       ex_eight.AdminUser("tralala@mail.ru"); // юзер для добавления в массив
   final user2 =
-      ex_eight.AdminUser("admin@ya.ru"); // юзер для добавления в массив
+      ex_eight.GeneralUser("admin@ya.ru"); // юзер для добавления в массив
   final user3 =
-      ex_eight.AdminUser("gogo@list.ru"); // юзер для добавления в массив
+      ex_eight.GeneralUser("gogo@list.ru"); // юзер для добавления в массив
   final user4 =
-      ex_eight.AdminUser("foo@gmail.com"); // юзер для добавления в массив
+      ex_eight.GeneralUser("foo@gmail.com"); // юзер для добавления в массив
   final user5 =
-      ex_eight.AdminUser("cranck@bk.ru"); // юзер для добавления в массив
+      ex_eight.GeneralUser("cranck@bk.ru"); // юзер для добавления в массив
 
   final userManager = ex_eight.UserManager();
 
