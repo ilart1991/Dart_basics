@@ -19,7 +19,7 @@ class UserManager<T extends User> {
   List<String> usersList = [];
   List<String> finalUserList = [];
 
-  addUser(T user) {
+  void addUser(T user) {
     usersList.add(user.email);
   }
 
