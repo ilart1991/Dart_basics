@@ -37,11 +37,9 @@ class UserManager<T extends User> {
     }
   }
 
-  String get getUserList => usersList.toString();
-
   void getUserListFinal() {
     for (int i = 0; i < usersList.length; i++) {
-      if (usersList[i].split("@").first == "admin") {
+      if (usersList[i] == AdminUser(usersList[i]).getMailSystem) {
         finalUserList.add(usersList[i].split("@").last);
       } else {
         finalUserList.add(usersList[i]);
