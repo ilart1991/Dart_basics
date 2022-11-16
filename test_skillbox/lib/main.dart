@@ -48,9 +48,9 @@ void main() {
   // Задание 8
   print("Задание 8");
   final user1 =
-      ex_eight.AdminUser("tralala@mail.ru"); // юзер для добавления в массив
+      ex_eight.AdminUser("admin@ya.ru"); // юзер-админ для добавления в массив
   final user2 =
-      ex_eight.GeneralUser("admin@ya.ru"); // юзер для добавления в массив
+      ex_eight.GeneralUser("tralala@mail.ru"); // юзер для добавления в массив
   final user3 =
       ex_eight.GeneralUser("gogo@list.ru"); // юзер для добавления в массив
   final user4 =
@@ -60,19 +60,21 @@ void main() {
 
   final userManager = ex_eight.UserManager();
 
-  userManager.addUser(user1);
-  userManager.addUser(user2);
-  userManager.addUser(user3);
-  userManager.addUser(user4);
-  userManager.addUser(user5);
+  List users = [user1, user2, user3, user4, user5];
 
-  print(userManager.getUserList); // пользователи в массиве
+  for (int i = 0; i < users.length; i++) {
+    if (users[i].runtimeType == ex_eight.AdminUser) {
+      userManager.addUser(ex_eight.AdminUser(users[i].getMailSystem));
+    } else {
+      userManager.addUser(users[i]);
+    }
+  }
+
   userManager.getUserListFinal();
-  print(userManager.finalUserList); // пользователи со скрытым admin
+  print(
+      "Пользователи ${userManager.finalUserList}"); // пользователи со скрытым admin
 
-  final userForDel =
-      ex_eight.AdminUser(user4.email); // пользователь для удаления
+  final userForDel = users[0]; // пользователь для удаления
   userManager.deleteUser(userForDel);
-  print("После удаления ${userForDel.email}: ${userManager.getUserList}");
   print("После удаления ${userForDel.email}: ${userManager.finalUserList}");
 }
