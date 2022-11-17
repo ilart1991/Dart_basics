@@ -5,24 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test_skillbox",
-            "cwd": "test_skillbox",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "test_skillbox (profile mode)",
+            "name": "dev",
             "cwd": "test_skillbox",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "program": "lib/dev.dart"
         },
         {
-            "name": "test_skillbox (release mode)",
+            "name": "release",
             "cwd": "test_skillbox",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "program": "lib/main.dart"
         }
     ]
 }
