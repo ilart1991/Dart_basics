@@ -1,11 +1,12 @@
-import 'simple_nums_nod_nok.dart' as ex_one;
+// Project imports:
 import 'binary_decimal.dart' as ex_two;
 import 'nums_from_str.dart' as ex_three;
-import 'words_count.dart' as ex_four;
-import 'word_is_int.dart' as ex_five;
 import 'point.dart' as ex_six;
+import 'simple_nums_nod_nok.dart' as ex_one;
 import 'sqrt.dart' as ex_seven;
 import 'user.dart' as ex_eight;
+import 'word_is_int.dart' as ex_five;
+import 'words_count.dart' as ex_four;
 
 void main() {
   // Задание 1

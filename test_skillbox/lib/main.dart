@@ -1,13 +1,27 @@
-import 'simple_nums_nod_nok.dart' as ex_one;
+// homework 1
+
+// Flutter imports:
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+// Project imports:
 import 'binary_decimal.dart' as ex_two;
 import 'nums_from_str.dart' as ex_three;
-import 'words_count.dart' as ex_four;
-import 'word_is_int.dart' as ex_five;
 import 'point.dart' as ex_six;
+import 'simple_nums_nod_nok.dart' as ex_one;
 import 'sqrt.dart' as ex_seven;
 import 'user.dart' as ex_eight;
+import 'word_is_int.dart' as ex_five;
+import 'words_count.dart' as ex_four;
+
+// homework 2
 
 void main() {
+  // homework 1
   // Задание 1
   print("Задание 1");
   ex_one.getSimpleNumbers(); // возврат простых множителей
@@ -77,4 +91,47 @@ void main() {
   final userForDel = users[0]; // пользователь для удаления
   userManager.deleteUser(userForDel);
   print("После удаления ${userForDel.email}: ${userManager.finalUserList}");
+
+  runApp(
+    MaterialApp(
+      home: MyApp(),
+    ),
+  );
+
+  // homework 2
+}
+
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  List<Widget> images = [
+    Image.asset("assets/images/image1.jpg"),
+    Image.asset("assets/images/image2.jpg"),
+    Image.asset("assets/images/image3.jpg")
+  ];
+
+  @override
+  String svgPath = "assets/images/leaf.svg";
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              svgPath,
+              width: 200,
+              height: 200,
+            ),
+            CarouselSlider(
+                items: images,
+                options: CarouselOptions(
+                    height: 100,
+                    reverse: true,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 1))),
+          ],
+        ),
+      ),
+    );
+  }
 }
