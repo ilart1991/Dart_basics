@@ -108,11 +108,19 @@ class MyApp extends StatelessWidget {
     Image.asset("assets/images/image2.jpg"),
     Image.asset("assets/images/image3.jpg")
   ];
+  List<Widget> tabs = [
+    Tab(text: "first"),
+    Tab(text: "second"),
+    Tab(text: "third")
+  ];
 
   @override
   String svgPath = "assets/images/leaf.svg";
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("My app name"),
+      ),
       body: Container(
         alignment: Alignment.center,
         child: Column(
