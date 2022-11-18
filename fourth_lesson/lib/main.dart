@@ -30,19 +30,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<String> nav = ['Список 1', 'Список 2'];
   final List fakeData = List.generate(100, (index) => index.toString());
 
-  final List<String> test = [
-    'https://picsum.photos/1200/501',
-    'https://picsum.photos/1200/502',
-    'https://picsum.photos/1200/503',
-    'https://picsum.photos/1200/504',
-    'https://picsum.photos/1200/505',
-    'https://picsum.photos/1200/506',
-    'https://picsum.photos/1200/507',
-    'https://picsum.photos/1200/508',
-    'https://picsum.photos/1200/509',
-    'https://picsum.photos/1200/510',
-  ];
-
   Map<String, dynamic> data = {
     'Мои фото': [
       'https://picsum.photos/1200/501',
