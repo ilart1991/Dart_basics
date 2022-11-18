@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             CarouselSlider(
                 items: images,
                 options: CarouselOptions(
-                    height: 100,
+                    height: 300,
                     reverse: true,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 1))),
