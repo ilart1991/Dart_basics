@@ -30,6 +30,19 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<String> nav = ['Список 1', 'Список 2'];
   final List fakeData = List.generate(100, (index) => index.toString());
 
+  final List<String> test = [
+    'https://picsum.photos/1200/501',
+    'https://picsum.photos/1200/502',
+    'https://picsum.photos/1200/503',
+    'https://picsum.photos/1200/504',
+    'https://picsum.photos/1200/505',
+    'https://picsum.photos/1200/506',
+    'https://picsum.photos/1200/507',
+    'https://picsum.photos/1200/508',
+    'https://picsum.photos/1200/509',
+    'https://picsum.photos/1200/510',
+  ];
+
   Map<String, dynamic> data = {
     'Мои фото': [
       'https://picsum.photos/1200/501',
@@ -60,21 +73,33 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: nav.length,
+      length: data.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Homework example'),
+          bottom: TabBar(
+            tabs: data.keys.map((String item) => Tab(text: item)).toList(),
+          ),
         ),
         body: TabBarView(
-          children: nav.map((name) {
-            return ListView(
-              key: PageStorageKey(name),
-              children: <Widget>[
-                ...fakeData.map((e) {
-                  return Text(e);
-                }).toList()
-              ],
-            );
+          children: data.keys.map((image) {
+            if (image == data.keys.first) {
+              return ListView(
+                key: PageStorageKey(image),
+                children: <Widget>[
+                  for (var item in data.values.first) Image.network(item),
+                ],
+              );
+            } else if (image == data.keys.last) {
+              return ListView(
+                key: PageStorageKey(image),
+                children: <Widget>[
+                  for (var item in data.values.last) Image.network(item),
+                ],
+              );
+            } else {
+              return ListView();
+            }
           }).toList(),
         ),
       ),
