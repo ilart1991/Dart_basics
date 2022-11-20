@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(MyApp());
@@ -54,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'https://picsum.photos/1200/518',
       'https://picsum.photos/1200/519',
       'https://picsum.photos/1200/520',
-    ]
+    ],
   };
 
   @override
@@ -63,29 +64,45 @@ class _MyHomePageState extends State<MyHomePage> {
       length: data.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Homework example'),
+          title: const Text(
+            'Homework example',
+            style: TextStyle(fontWeight: FontWeight.w900),
+          ),
+          toolbarHeight: 90,
           bottom: TabBar(
             tabs: data.keys.map((String item) => Tab(text: item)).toList(),
           ),
         ),
         body: TabBarView(
           children: data.keys.map((image) {
-            if (image == data.keys.first) {
+            if (image == data.keys.elementAt(0)) {
               return ListView(
                 key: PageStorageKey(image),
                 children: <Widget>[
-                  for (var item in data.values.first) Image.network(item),
-                ],
-              );
-            } else if (image == data.keys.last) {
-              return ListView(
-                key: PageStorageKey(image),
-                children: <Widget>[
-                  for (var item in data.values.last) Image.network(item),
+                  for (var item in data.values.elementAt(0))
+                    FadeInImage(
+                      placeholder:
+                          const AssetImage("assets/images/basketball.gif"),
+                      image: NetworkImage(item),
+                      height: 300,
+                      fit: BoxFit.none,
+                    )
                 ],
               );
             } else {
-              return ListView();
+              return ListView(
+                key: PageStorageKey(image),
+                children: <Widget>[
+                  for (var item in data.values.elementAt(1))
+                    FadeInImage(
+                      placeholder:
+                          const AssetImage("assets/images/basketball.gif"),
+                      image: NetworkImage(item),
+                      height: 300,
+                      fit: BoxFit.none,
+                    )
+                ],
+              );
             }
           }).toList(),
         ),
