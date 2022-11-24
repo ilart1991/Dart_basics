@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:six_lesson/parts/my_app.dart';
+import 'package:six_lesson/parts/widgets/my_sliver_app_bar.dart';
+import 'parts/widgets/my_list_view.dart';
+import 'package:six_lesson/parts/widgets/my_lay_builder.dart';
+import 'package:six_lesson/parts/widgets/my_text_field.dart';
 
 void main() {
   runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-    );
-  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -26,21 +17,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var listData = List.generate(50, (index) => index);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'List view divider',
-            ),
-          ],
-        ),
-      ),
-    );
+        // body: Center(child: myListView), // Задание 1
+        // body: myCustomScrollView, // Задание 2
+        // body: myLayBuilder, // Задание 3
+        // body: myTextField, // Задание 4
+        );
   }
 }
