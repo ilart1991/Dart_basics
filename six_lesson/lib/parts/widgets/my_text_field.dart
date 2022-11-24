@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Padding myTextField = Padding(
+Padding myTextField = const Padding(
   padding: EdgeInsets.all(8.0),
   child: SafeArea(
     child: TextField(
