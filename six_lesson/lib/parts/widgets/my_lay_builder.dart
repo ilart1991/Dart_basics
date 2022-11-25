@@ -8,17 +8,11 @@ SafeArea myLayBuilder = SafeArea(
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             double width = constraints.constrainWidth();
-            return width > 500
-                ? ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: boxes.length,
-                    itemBuilder: (context, index) => boxes[index],
-                  )
-                : ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: boxes.length,
-                    itemBuilder: (context, index) => boxes[index],
-                  ); //
+            return ListView.builder(
+              scrollDirection: width > 500 ? Axis.vertical : Axis.horizontal,
+              itemCount: boxes.length,
+              itemBuilder: (context, index) => boxes[index],
+            );
           },
         ),
       ),
