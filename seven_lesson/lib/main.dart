@@ -9,9 +9,10 @@ import 'parts/fluro_router.dart';
 void main() {
   runApp(MyApp());
   fetchFileFromAssets("assets/artists.json").then((jsonData) => {
-        jsonList = json.decode(jsonData),
-        jsonMap = {for (var v in jsonList) v["name"]: v["about"]},
-        print(jsonMap.keys),
+        jsonList = json.decode(jsonData), // получаем json
+        jsonMap = {
+          for (var v in jsonList) v["name"]: v["about"]
+        }, // раскидываем в map имя и описание
       });
 }
 
@@ -25,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   initState() {
     super.initState();
-    RouterFluro.initRoutes();
+    RouterFluro.initRoutes(); // инициализация путей
   }
 
   @override

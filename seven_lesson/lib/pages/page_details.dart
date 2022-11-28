@@ -12,7 +12,7 @@ class PageDetails extends StatelessWidget {
     for (int i = 0; i < jsonMap.length; i++) {
       if (artistData == jsonMap.keys.elementAt(i)) {
         artistInfo = jsonMap.values.elementAt(i);
-      }
+      } // соответствие имени и описания
     }
     return Scaffold(
       appBar: AppBar(

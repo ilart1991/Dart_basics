@@ -5,7 +5,7 @@ Map<String, String> jsonMap = {};
 
 Map<String, Icon> drawerItems = {
   "Home": const Icon(Icons.home),
-  "Albums": const Icon(Icons.person),
+  "Albums": const Icon(Icons.queue_music),
 };
 
 int currentIndex = 0;
