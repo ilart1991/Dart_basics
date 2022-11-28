@@ -41,7 +41,6 @@ ListView artistsList = ListView.builder(
     return ListTile(
       title: Text(jsonMap.keys.elementAt(index)),
       onTap: () {
-        print(jsonMap.values.elementAt(index));
         Navigator.pushNamed(
             context, "details/${jsonMap.keys.elementAt(index)}");
       },
