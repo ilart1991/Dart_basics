@@ -8,12 +8,6 @@ import 'parts/fluro_router.dart';
 
 void main() {
   runApp(MyApp());
-  fetchFileFromAssets("assets/artists.json").then((jsonData) => {
-        jsonList = json.decode(jsonData), // получаем json
-        jsonMap = {
-          for (var v in jsonList) v["name"]: v["about"]
-        }, // раскидываем в map имя и описание
-      });
 }
 
 class MyHomePage extends StatefulWidget {
