@@ -1,8 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:seven_lesson/parts/fluro_router.dart';
-import 'package:seven_lesson/fetch_file.dart';
 
 List jsonList = [];
 Map<String, String> jsonMap = {};

@@ -9,7 +9,6 @@ class PageHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       drawer: myDrawer,
-      backgroundColor: Colors.red[100],
       body: Center(
           child: Text(
         "Home",

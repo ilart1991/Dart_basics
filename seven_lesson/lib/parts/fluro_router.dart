@@ -1,6 +1,5 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:seven_lesson/main.dart';
 import 'package:seven_lesson/pages/page_home.dart';
 
 import '../pages/page_artists.dart';

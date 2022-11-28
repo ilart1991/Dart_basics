@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:seven_lesson/parts/vars.dart';
-import 'fetch_file.dart';
+import 'parts/fetch_file.dart';
 import 'parts/my_app.dart';
 import 'parts/fluro_router.dart';
 
