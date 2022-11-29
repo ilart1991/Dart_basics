@@ -1,9 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
-import 'fetch_file.dart';
-import 'package:seven_lesson/pages/page_artists.dart';
 
 List jsonList = [];
 Map<String, String> jsonMap = {};
