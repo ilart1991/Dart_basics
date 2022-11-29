@@ -6,19 +6,32 @@ import 'package:seven_lesson/parts/vars.dart';
 import '../parts/fetch_file.dart';
 import '../widgets/my_drawer.dart';
 
-class PageArtists extends StatefulWidget {
-  PageArtists({Key? key}) : super(key: key);
-  @override
-  PageArtistState createState() => PageArtistState();
-}
+class PageArtists extends StatelessWidget {
+  const PageArtists({super.key});
 
-class PageArtistState extends State<PageArtists> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      drawer: myDrawer,
-      body: artistsList,
+    return FutureBuilder(
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Scaffold(
+            appBar: AppBar(),
+            drawer: myDrawer,
+            body: artistsList,
+          );
+        } else {
+          return Center(child: Text('Загрузка данных'));
+        }
+      },
+      future: getJson(),
     );
   }
+}
+
+Future<Map> getJson() async {
+  fetchFileFromAssets("assets/artists.json").then((jsonData) => {
+        jsonList = json.decode(jsonData), // получаем json
+        jsonMap = {for (var v in jsonList) v["name"]: v["about"]}, // map
+      });
+  return jsonMap;
 }

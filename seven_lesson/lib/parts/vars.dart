@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'fetch_file.dart';
+import 'package:seven_lesson/pages/page_artists.dart';
 
 List jsonList = [];
 Map<String, String> jsonMap = {};
@@ -30,11 +31,6 @@ ListView drawerList = ListView.builder(
         if (index == 0) {
           Navigator.pushNamed(context, "home");
         } else if (index == 1) {
-          fetchFileFromAssets("assets/artists.json").then((jsonData) => {
-                jsonList = json.decode(jsonData), // получаем json
-                jsonMap = {for (var v in jsonList) v["name"]: v["about"]},
-                print(jsonMap.keys), // раскидываем в map имя и описание
-              });
           Navigator.pushNamed(context, "artists");
         }
       },
