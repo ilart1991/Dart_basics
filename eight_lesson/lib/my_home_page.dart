@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'fetch_file.dart';
 
-String fileName = "";
-String fileData = "";
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
@@ -14,6 +11,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
+  String fileName =
+      ""; // в assets файлы test.txt и test2.txt. В поле ввода вводить имя файла без расширения
+  String fileData = "";
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onPressed: () {
                     fileName = myController.text;
-                    fetchFileFromAssets("assets/$fileName.txt").then((value) {
-                      fileData = value;
-                      print(fileData);
-                    }).catchError((err) {
-                      fileName = "Файл не найден";
-                      fileData = "";
+                    fetchFileFromAssets("assets/$fileName.txt").then((txtData) {
+                      setState(() {
+                        fileData = txtData;
+                      });
+                    }).onError((error, stackTrace) {
+                      setState(() {
+                        fileData = "";
+                        fileName = "Файл не найден";
+                      });
                     });
-                    setState(() {});
                   },
                 ),
               ),
