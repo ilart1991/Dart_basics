@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       print(fileData);
                     }).catchError((err) {
                       fileName = "Файл не найден";
+                      fileData = "";
                     });
                     setState(() {});
                   },
