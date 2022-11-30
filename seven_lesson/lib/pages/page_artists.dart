@@ -19,7 +19,7 @@ class _PageArtistsState extends State<PageArtists> {
   void initState() {
     Future<List> getJson =
         fetchFileFromAssets("assets/artists.json").then((jsonData) {
-      jsonList = json.decode(jsonData); // оплучаем json
+      jsonList = json.decode(jsonData); // получаем json
       jsonMap = {for (var v in jsonList) v["name"]: v["about"]}; // делаем map
       return jsonList;
     });
