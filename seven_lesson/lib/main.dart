@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:seven_lesson/parts/vars.dart';
-import 'parts/fetch_file.dart';
 import 'parts/my_app.dart';
 import 'parts/fluro_router.dart';
 
@@ -11,7 +9,7 @@ void main() {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }

@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:seven_lesson/parts/vars.dart';
+import 'package:seven_lesson/widgets/artists_list.dart';
 
 import '../parts/fetch_file.dart';
 import '../widgets/my_drawer.dart';
 
 class PageArtists extends StatefulWidget {
-  PageArtists({Key? key}) : super(key: key);
+  const PageArtists({Key? key}) : super(key: key);
   @override
   _PageArtistsState createState() => _PageArtistsState();
 }
@@ -36,11 +37,11 @@ class _PageArtistsState extends State<PageArtists> {
         if (snapshot.connectionState == ConnectionState.done) {
           return Scaffold(
             appBar: AppBar(),
-            drawer: myDrawer,
-            body: artistsList,
+            drawer: const MyDrawer(),
+            body: const MyArtistsList(),
           );
         } else {
-          return Center(child: Text('Загрузка данных'));
+          return const Center(child: Text('Загрузка данных'));
         }
       },
     );

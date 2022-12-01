@@ -8,7 +8,7 @@ class PageHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: myDrawer,
+      drawer: MyDrawer(),
       body: Center(
           child: Text(
         "Home",
