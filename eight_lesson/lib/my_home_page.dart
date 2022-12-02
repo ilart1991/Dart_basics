@@ -15,6 +15,20 @@ class _MyHomePageState extends State<MyHomePage> {
       ""; // в assets файлы test.txt и test2.txt. В поле ввода вводить имя файла без расширения
   String fileData = "";
 
+  void onTap() {
+    fileName = myController.text;
+    fetchFileFromAssets("assets/$fileName.txt").then((txtData) {
+      setState(() {
+        fileData = txtData;
+      });
+    }).onError((error, stackTrace) {
+      setState(() {
+        fileData = "";
+        fileName = "Файл не найден";
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,17 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
-                    fileName = myController.text;
-                    fetchFileFromAssets("assets/$fileName.txt").then((txtData) {
-                      setState(() {
-                        fileData = txtData;
-                      });
-                    }).onError((error, stackTrace) {
-                      setState(() {
-                        fileData = "";
-                        fileName = "Файл не найден";
-                      });
-                    });
+                    onTap();
                   },
                 ),
               ),
