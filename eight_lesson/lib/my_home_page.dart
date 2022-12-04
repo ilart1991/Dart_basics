@@ -11,8 +11,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
-  String fileName =
-      ""; // в assets файлы test.txt и test2.txt. В поле ввода вводить имя файла без расширения
+  String fileName = ""; // в поле ввода вводить имя файла без расширения
   String fileData = "";
 
   void onTap() {
