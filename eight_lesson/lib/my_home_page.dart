@@ -11,65 +11,73 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final myController = TextEditingController();
-  String fileName = ""; // в поле ввода вводить имя файла без расширения
+  String fileName = "test"; // в поле ввода вводить имя файла без расширения
   String fileData = "";
 
-  void onTap() {
-    fileName = myController.text;
-    fetchFileFromAssets("assets/$fileName.txt").then((txtData) {
-      setState(() {
+  Future<String> onTap() async {
+    setState(() {
+      fileName = myController.text;
+      fetchFileFromAssets("assets/$fileName.txt").then((txtData) {
         fileData = txtData;
       });
-    }).onError((error, stackTrace) {
-      setState(() {
-        fileData = "";
-        fileName = "Файл не найден";
-      });
     });
+    return fileName;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          TextField(
-            controller: myController,
-            decoration: InputDecoration(
-              hintText: "Введите имя файла",
-              border: const OutlineInputBorder(),
-              suffixIcon: Container(
-                margin: const EdgeInsets.all(0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    minimumSize: const Size(100, 60),
-                    backgroundColor: Colors.black,
-                  ),
-                  child: const Text(
-                    "Найти",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () {
-                    onTap();
-                  },
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            child: Text(
-              fileName,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Text(fileData),
-        ]),
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FutureBuilder<String>(
+              future: fetchFileFromAssets("assets/$fileName.txt"),
+              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                if (snapshot.hasData) {
+                  fileName = myController.text;
+                } else {
+                  fileName = "Файл не найден";
+                  fileData = "";
+                }
+                return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextField(
+                        controller: myController,
+                        decoration: InputDecoration(
+                          hintText: "Введите имя файла",
+                          border: const OutlineInputBorder(),
+                          suffixIcon: Container(
+                            margin: const EdgeInsets.all(0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                minimumSize: const Size(100, 60),
+                                backgroundColor: Colors.black,
+                              ),
+                              child: const Text(
+                                "Найти",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                onTap();
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        child: Text(
+                          fileName,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(fileData),
+                    ]);
+              }),
+        ),
       ),
     );
   }
