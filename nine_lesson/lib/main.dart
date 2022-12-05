@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'hotel.dart';
 import 'my_app.dart';
 import 'fluro_router.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
