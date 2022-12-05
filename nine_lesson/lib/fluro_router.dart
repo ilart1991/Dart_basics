@@ -14,14 +14,15 @@ class RouterFluro {
   static var detailsHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
     return DetailsPage(
-      uuid: params["hotelName"][0],
+      uuid: params["uuid"][0],
+      hotelName: params["hotelName"][0],
     );
   });
 
   static initRoutes() {
     fluroRouter.define("home",
         handler: homeHandler, transitionType: TransitionType.native);
-    fluroRouter.define("details/:hotelName",
+    fluroRouter.define("details/:uuid/:hotelName",
         handler: detailsHandler, transitionType: TransitionType.native);
   }
 }
