@@ -14,29 +14,13 @@ class HotelsList extends StatefulWidget {
 }
 
 class _HotelsListState extends State<HotelsList> {
-  bool isComplete = false;
-
   bool grid = false;
 
-  @override
-  initState() {
-    super.initState();
-    getData();
-  }
-
   getData() async {
-    setState(() {
-      isComplete = true;
-    });
-
     final response = await http.get(Uri.parse(
         "https://run.mocky.io/v3/ac888dc5-d193-4700-b12c-abb43e289301"));
     var data = jsonDecode(response.body);
     hotels = data.map<Hotel>((hotel) => Hotel.fromJson(hotel)).toList();
-
-    setState(() {
-      isComplete = false;
-    });
   }
 
   void showList() {
@@ -59,10 +43,17 @@ class _HotelsListState extends State<HotelsList> {
                 onPressed: showGrid, icon: const Icon(Icons.collections_sharp))
           ],
         ),
-        body: isComplete == false
-            ? grid == false
-                ? MyListView()
-                : MyGridView()
-            : const LinearProgressIndicator());
+        body: FutureBuilder(
+            future: getData(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasError &&
+                  snapshot.connectionState == ConnectionState.done) {
+                return grid == false ? const MyListView() : const MyGridView();
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            }));
   }
 }
