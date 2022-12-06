@@ -63,6 +63,8 @@ class _DetailsPageState extends State<DetailsPage> {
     return response.statusCode;
   }
 
+  TextStyle headers = TextStyle(fontWeight: FontWeight.bold);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,25 +109,19 @@ class _DetailsPageState extends State<DetailsPage> {
                         Row(
                           children: [
                             const Text("Город: "),
-                            Text(city,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
+                            Text(city, style: headers),
                           ],
                         ),
                         Row(
                           children: [
                             const Text("Улица: "),
-                            Text(street,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
+                            Text(street, style: headers),
                           ],
                         ),
                         Row(
                           children: [
                             const Text("Рейтинг: "),
-                            Text(raiting,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
+                            Text(raiting, style: headers),
                           ],
                         ),
                       ],

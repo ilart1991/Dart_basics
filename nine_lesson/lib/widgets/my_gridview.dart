@@ -42,9 +42,7 @@ class MyGridView extends StatelessWidget {
                       minimumSize: const Size(200, 48),
                     ),
                     onPressed: () {
-                      print("go detail");
-                      Navigator.pushNamed(context,
-                          "details/${hotels[index].uuid}/${hotels[index].name}");
+                      goDetails(context, index);
                     },
                     child: const Text("Подробнее"),
                   )

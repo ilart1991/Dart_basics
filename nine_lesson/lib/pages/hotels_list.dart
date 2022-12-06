@@ -7,6 +7,11 @@ import '../hotel.dart';
 
 late var hotels;
 
+void goDetails(BuildContext context, int index) {
+  Navigator.pushNamed(
+      context, "details/${hotels[index].uuid}/${hotels[index].name}");
+}
+
 class HotelsList extends StatefulWidget {
   const HotelsList({super.key});
   @override
@@ -17,7 +22,7 @@ class _HotelsListState extends State<HotelsList> {
   bool grid = false;
 
   getData() async {
-    final response = await http.get(Uri.parse(
+    var response = await http.get(Uri.parse(
         "https://run.mocky.io/v3/ac888dc5-d193-4700-b12c-abb43e289301"));
     var data = jsonDecode(response.body);
     hotels = data.map<Hotel>((hotel) => Hotel.fromJson(hotel)).toList();

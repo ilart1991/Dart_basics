@@ -35,9 +35,7 @@ class MyListView extends StatelessWidget {
                         const Spacer(),
                         MaterialButton(
                           onPressed: () {
-                            print("go detail");
-                            Navigator.pushNamed(context,
-                                "details/${hotels[index].uuid}/${hotels[index].name}");
+                            goDetails(context, index);
                           },
                           color: Colors.blue,
                           textColor: Colors.white,
