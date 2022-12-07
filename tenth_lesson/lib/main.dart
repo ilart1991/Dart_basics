@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: "/",
-      routes: {"/": (context) => LoginView(title: "Login/register")},
+      routes: {"/": (context) => const LoginView(title: "Login/register")},
       // home: const LoginView(title: 'Login/register'),
     );
   }
@@ -74,7 +74,7 @@ class _LoginViewState extends State<LoginView> {
             children: [
               MaterialButton(
                 color: login ? Colors.white : Colors.blue.shade100,
-                child: Text("LOGIN"),
+                child: const Text("LOGIN"),
                 onPressed: () {
                   success = false;
                   login = false;
@@ -82,9 +82,9 @@ class _LoginViewState extends State<LoginView> {
                 },
               ),
               MaterialButton(
-                key: Key("regBtn"),
+                key: const Key("regBtn"),
                 color: !login ? Colors.white : Colors.blue.shade100,
-                child: Text("REGISTRATION"),
+                child: const Text("REGISTRATION"),
                 onPressed: () {
                   success = false;
                   login = true;
@@ -103,20 +103,20 @@ class _LoginViewState extends State<LoginView> {
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     controller: emailController,
-                    key: Key("fieldEmail"),
-                    decoration: InputDecoration(label: Text("e-mail")),
+                    key: const Key("fieldEmail"),
+                    decoration: const InputDecoration(label: Text("e-mail")),
                   ),
                   TextFormField(
-                    key: Key("fieldPhone"),
+                    key: const Key("fieldPhone"),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ],
-                    decoration: InputDecoration(label: Text("phone")),
+                    decoration: const InputDecoration(label: Text("phone")),
                   ),
                   MaterialButton(
-                    key: Key("sendLoginBtn"),
-                    child: Text("SEND"),
+                    key: const Key("sendLoginBtn"),
+                    child: const Text("SEND"),
                     onPressed: () {
                       const String pattern =
                           r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -141,26 +141,27 @@ class _LoginViewState extends State<LoginView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextField(
-                    key: Key("firstNameField"),
+                    key: const Key("firstNameField"),
                     controller: fNameController,
-                    decoration: InputDecoration(label: Text("first name")),
+                    decoration:
+                        const InputDecoration(label: Text("first name")),
                   ),
                   TextField(
-                    key: Key("lastNameField"),
+                    key: const Key("lastNameField"),
                     controller: lNameController,
-                    decoration: InputDecoration(label: Text("last name")),
+                    decoration: const InputDecoration(label: Text("last name")),
                   ),
                   TextField(
-                    key: Key("numbersFieldReg"),
+                    key: const Key("numbersFieldReg"),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ],
-                    decoration: InputDecoration(label: Text("phone")),
+                    decoration: const InputDecoration(label: Text("phone")),
                   ),
                   MaterialButton(
-                    key: Key("sendRegBtn"),
-                    child: Text("SEND"),
+                    key: const Key("sendRegBtn"),
+                    child: const Text("SEND"),
                     onPressed: () {
                       if (!fNameController.text.isEmpty &&
                           !lNameController.text.isEmpty) {
