@@ -8,17 +8,6 @@ TextEditingController lNameController = TextEditingController();
 bool success = false;
 GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-String? validateEmail(String email) {
-  const String pattern =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-  final RegExp regex = RegExp(pattern);
-  if (email.isEmpty || !regex.hasMatch(email)) {
-    return 'Invalid email';
-  } else {
-    return null;
-  }
-}
-
 void main() {
   runApp(const MyApp());
 }
