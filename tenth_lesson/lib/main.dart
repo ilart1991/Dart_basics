@@ -8,7 +8,7 @@ TextEditingController lNameController = TextEditingController();
 bool success = false;
 GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-void main() {
+void main(boolean) {
   runApp(const MyApp());
 }
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginView(title: "Login/register"),
+      home: const LoginView(title: "Login/register"),
     );
   }
 }

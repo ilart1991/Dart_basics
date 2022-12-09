@@ -4,13 +4,11 @@ import 'package:tenth_lesson/main.dart';
 
 void main() {
   testWidgets("Login view test", (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      key: const Key("matapp"),
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginView(title: "Login/register"),
-    ));
+    await tester.pumpWidget(const MyApp());
 
     await tester.pumpAndSettle();
+
+    expect(find.text("Login/register"), findsOneWidget);
 
     await tester.tap(find.byKey(const Key("logBtn")));
 
@@ -20,7 +18,7 @@ void main() {
     expect(find.byKey(const Key("sendLoginBtn")), findsOneWidget);
 
     final TextFormField fieldEmail =
-        tester.widget<TextFormField>(find.byKey(Key('fieldEmail')));
+        tester.widget<TextFormField>(find.byKey(const Key('fieldEmail')));
 
     await tester.enterText(find.byWidget(fieldEmail), 'mail@mail.ru');
     expect(find.text('mail@mail.ru'), findsOneWidget);
