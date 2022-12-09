@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:email_validator/email_validator.dart';
 
 TextEditingController emailController = TextEditingController();
 TextEditingController fNameController = TextEditingController();
@@ -8,7 +7,7 @@ TextEditingController lNameController = TextEditingController();
 bool success = false;
 GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-void main(boolean) {
+void main() {
   runApp(const MyApp());
 }
 
