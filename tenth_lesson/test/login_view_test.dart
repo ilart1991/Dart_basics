@@ -4,10 +4,15 @@ import 'package:tenth_lesson/main.dart';
 
 void main() {
   testWidgets("Login view test", (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(
-        home: LoginView(
-      title: 'Login/register',
-    )));
+    await tester.pumpWidget(MaterialApp(
+      key: const Key("matapp"),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const LoginView(title: "Login/register"),
+    ));
+
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byKey(const Key("logBtn")));
 
     // логин
     expect(find.byKey(const Key("fieldEmail")), findsOneWidget);

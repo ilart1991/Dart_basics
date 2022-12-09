@@ -18,13 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      key: const Key("matapp"),
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "/",
-      routes: {"/": (context) => const LoginView(title: "Login/register")},
-      // home: const LoginView(title: 'Login/register'),
+      home: LoginView(title: "Login/register"),
     );
   }
 }
@@ -51,6 +50,13 @@ class _LoginViewState extends State<LoginView> {
       }
     }
 
+    bool validateEmail(String value) {
+      String pattern =
+          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+      RegExp regex = RegExp(pattern);
+      return (!regex.hasMatch(value)) ? false : true;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -62,6 +68,7 @@ class _LoginViewState extends State<LoginView> {
           Row(
             children: [
               MaterialButton(
+                key: const Key("logBtn"),
                 color: login ? Colors.white : Colors.blue.shade100,
                 child: const Text("LOGIN"),
                 onPressed: () {
@@ -107,16 +114,11 @@ class _LoginViewState extends State<LoginView> {
                     key: const Key("sendLoginBtn"),
                     child: const Text("SEND"),
                     onPressed: () {
-                      const String pattern =
-                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                      final RegExp regex = RegExp(pattern);
-                      if (emailController.text.isEmpty ||
-                          !regex.hasMatch(emailController.text)) {
-                        print("error");
-                      } else {
+                      if (validateEmail(emailController.text)) {
                         success = true;
                         setState(() {});
                       }
+                      ;
                     },
                   ),
                 ],
@@ -156,8 +158,6 @@ class _LoginViewState extends State<LoginView> {
                           !lNameController.text.isEmpty) {
                         success = true;
                         setState(() {});
-                      } else {
-                        print("error");
                       }
                     },
                   ),
