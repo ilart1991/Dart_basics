@@ -16,7 +16,7 @@ List spaces = [
       "assets/images/space2.jpg",
     ),
     "uuid": "7b25e71774",
-    "name": "space2"
+    "name": "space27"
   },
   {
     "image": const AssetImage(
@@ -30,35 +30,35 @@ List spaces = [
       "assets/images/space4.jpg",
     ),
     "uuid": "7b25gge714",
-    "name": "space2"
+    "name": "space3"
   },
   {
     "image": const AssetImage(
       "assets/images/space5.jpg",
     ),
     "uuid": "711b25e714",
-    "name": "space2"
+    "name": "space24"
   },
   {
     "image": const AssetImage(
       "assets/images/space6.jpg",
     ),
     "uuid": "7b25e71114",
-    "name": "space2"
+    "name": "space222"
   },
   {
     "image": const AssetImage(
       "assets/images/space7.jpg",
     ),
     "uuid": "732b25e714",
-    "name": "space2"
+    "name": "space21"
   },
   {
     "image": const AssetImage(
       "assets/images/space8.jpg",
     ),
     "uuid": "7b2512e714",
-    "name": "space2"
+    "name": "space23"
   },
 ];
 
