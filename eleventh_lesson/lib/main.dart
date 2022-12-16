@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: AlignmentDirectional.bottomCenter,
                 children: <Widget>[
                   Container(
-                      height: 130,
+                      height: 270,
                       child: Hero(
                         tag: spaces[index]["uuid"],
                         child: FadeInImage(
@@ -119,13 +119,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           image: spaces[index]["image"],
                           height: 200,
                           width: 1000,
-                          fit: BoxFit.none,
+                          fit: BoxFit.fill,
                         ),
                       )),
                   Positioned(
-                      top: 100,
+                      top: 230,
                       child: Container(
-                          width: 400,
+                          width: 1400,
                           height: 80,
                           color: Colors.white,
                           child: Padding(
@@ -140,21 +140,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   Positioned(
                     right: 60,
                     bottom: 10,
-                    child: MaterialButton(
-                      color: Colors.blue,
-                      minWidth: 45,
-                      height: 45,
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DetailPage(
-                              image: spaces[index]["image"],
-                              uuid: spaces[index]["uuid"],
-                              name: spaces[index]["name"]),
-                        ));
-                      },
-                      child: const Icon(
-                        Icons.arrow_right_alt_rounded,
-                        color: Colors.white,
+                    child: CircleAvatar(
+                      radius: 25,
+                      child: MaterialButton(
+                        minWidth: 45,
+                        height: 45,
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailPage(
+                                image: spaces[index]["image"],
+                                uuid: spaces[index]["uuid"],
+                                name: spaces[index]["name"]),
+                          ));
+                        },
+                        child: const Icon(
+                          Icons.send,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
