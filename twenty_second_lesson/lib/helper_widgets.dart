@@ -5,5 +5,6 @@ PreferredSizeWidget appBar() {
     title: const Text(
       "New Default Title",
     ),
+    backgroundColor: Colors.blueGrey,
   );
 }
